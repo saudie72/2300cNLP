@@ -1,0 +1,506 @@
+[
+ {
+  "text": "Ugh, I'm so drained after yesterday's infusion",
+  "proba": [
+   0.683473,
+   0.25545,
+   0.061077
+  ]
+ },
+ {
+  "text": "Feeling pretty wrecked, hardly slept at all",
+  "proba": [
+   0.187045,
+   0.110847,
+   0.702108
+  ]
+ },
+ {
+  "text": "My energy is really low and my shoulder aches",
+  "proba": [
+   0.878783,
+   0.062624,
+   0.058593
+  ]
+ },
+ {
+  "text": "Tired to the bone today",
+  "proba": [
+   0.17591,
+   0.187375,
+   0.636715
+  ]
+ },
+ {
+  "text": "I'm fatigued and kind of queasy",
+  "proba": [
+   0.546017,
+   0.12634,
+   0.327643
+  ]
+ },
+ {
+  "text": "Can't shake this exhaustion",
+  "proba": [
+   0.36947,
+   0.349742,
+   0.280788
+  ]
+ },
+ {
+  "text": "Feel heavy and slow, just want my bed",
+  "proba": [
+   0.878365,
+   0.051505,
+   0.07013
+  ]
+ },
+ {
+  "text": "Not a good day, everything is sore",
+  "proba": [
+   0.518069,
+   0.417649,
+   0.064283
+  ]
+ },
+ {
+  "text": "I'm wiped, maybe something tiny",
+  "proba": [
+   0.777854,
+   0.158915,
+   0.063231
+  ]
+ },
+ {
+  "text": "So sleepy and foggy this morning",
+  "proba": [
+   0.49624,
+   0.329352,
+   0.174408
+  ]
+ },
+ {
+  "text": "I feel weak and shaky",
+  "proba": [
+   0.907915,
+   0.03753,
+   0.054555
+  ]
+ },
+ {
+  "text": "Totally worn down from the week",
+  "proba": [
+   0.90705,
+   0.040523,
+   0.052427
+  ]
+ },
+ {
+  "text": "Low energy, low mood",
+  "proba": [
+   0.789985,
+   0.096653,
+   0.113362
+  ]
+ },
+ {
+  "text": "Rough night, I'm running on fumes",
+  "proba": [
+   0.965836,
+   0.014789,
+   0.019374
+  ]
+ },
+ {
+  "text": "Body says rest today",
+  "proba": [
+   0.764145,
+   0.107864,
+   0.127991
+  ]
+ },
+ {
+  "text": "I'm achy and drained",
+  "proba": [
+   0.747822,
+   0.110596,
+   0.141581
+  ]
+ },
+ {
+  "text": "Barely have the energy to get dressed",
+  "proba": [
+   0.691232,
+   0.079464,
+   0.229304
+  ]
+ },
+ {
+  "text": "Feeling pretty spent after radiation",
+  "proba": [
+   0.652533,
+   0.179602,
+   0.167865
+  ]
+ },
+ {
+  "text": "Not great, really tired",
+  "proba": [
+   0.231864,
+   0.057152,
+   0.710984
+  ]
+ },
+ {
+  "text": "My legs are so heavy and I'm exhausted",
+  "proba": [
+   0.947314,
+   0.033399,
+   0.019287
+  ]
+ },
+ {
+  "text": "I'm doing okay today",
+  "proba": [
+   0.117953,
+   0.78663,
+   0.095417
+  ]
+ },
+ {
+  "text": "Pretty average, a bit stiff",
+  "proba": [
+   0.097138,
+   0.844025,
+   0.058837
+  ]
+ },
+ {
+  "text": "Fine, I could manage a normal workout",
+  "proba": [
+   0.037007,
+   0.903191,
+   0.059802
+  ]
+ },
+ {
+  "text": "Middle of the road kind of day",
+  "proba": [
+   0.109729,
+   0.346523,
+   0.543748
+  ]
+ },
+ {
+  "text": "I'm alright, slightly tired",
+  "proba": [
+   0.101957,
+   0.800551,
+   0.097493
+  ]
+ },
+ {
+  "text": "Decent sleep, feeling normal",
+  "proba": [
+   0.172968,
+   0.664376,
+   0.162656
+  ]
+ },
+ {
+  "text": "Not bad, not amazing",
+  "proba": [
+   0.110114,
+   0.702351,
+   0.187535
+  ]
+ },
+ {
+  "text": "Ok overall, let's do something moderate",
+  "proba": [
+   0.10967,
+   0.765518,
+   0.124812
+  ]
+ },
+ {
+  "text": "I feel fairly steady this afternoon",
+  "proba": [
+   0.071879,
+   0.840324,
+   0.087796
+  ]
+ },
+ {
+  "text": "So-so, but I want to keep my routine",
+  "proba": [
+   0.026771,
+   0.947326,
+   0.025903
+  ]
+ },
+ {
+  "text": "Reasonably rested, nothing special",
+  "proba": [
+   0.052866,
+   0.896234,
+   0.050899
+  ]
+ },
+ {
+  "text": "A little sore but I'm fine",
+  "proba": [
+   0.075902,
+   0.865146,
+   0.058951
+  ]
+ },
+ {
+  "text": "I'm managing alright",
+  "proba": [
+   0.029733,
+   0.945235,
+   0.025032
+  ]
+ },
+ {
+  "text": "Feeling okay, a medium session sounds good",
+  "proba": [
+   0.078951,
+   0.800336,
+   0.120713
+  ]
+ },
+ {
+  "text": "Energy is fine, nothing intense please",
+  "proba": [
+   0.084376,
+   0.878572,
+   0.037053
+  ]
+ },
+ {
+  "text": "I'm calm and doing alright",
+  "proba": [
+   0.044321,
+   0.919964,
+   0.035715
+  ]
+ },
+ {
+  "text": "Bit tired but okay to move",
+  "proba": [
+   0.080696,
+   0.604817,
+   0.314487
+  ]
+ },
+ {
+  "text": "Normal day, feeling fine",
+  "proba": [
+   0.076631,
+   0.872832,
+   0.050537
+  ]
+ },
+ {
+  "text": "I'm good enough for a regular session",
+  "proba": [
+   0.050981,
+   0.741949,
+   0.20707
+  ]
+ },
+ {
+  "text": "Kind of in between today",
+  "proba": [
+   0.15016,
+   0.147432,
+   0.702407
+  ]
+ },
+ {
+  "text": "I feel incredible, let's go!",
+  "proba": [
+   0.063959,
+   0.117765,
+   0.818276
+  ]
+ },
+ {
+  "text": "Slept like a baby and I'm full of energy",
+  "proba": [
+   0.022034,
+   0.022768,
+   0.955198
+  ]
+ },
+ {
+  "text": "Feeling strong and ready for a challenge",
+  "proba": [
+   0.033885,
+   0.016425,
+   0.94969
+  ]
+ },
+ {
+  "text": "Super energized this morning",
+  "proba": [
+   0.149975,
+   0.24804,
+   0.601986
+  ]
+ },
+ {
+  "text": "I'm pumped, give me the long workout",
+  "proba": [
+   0.031922,
+   0.022219,
+   0.945859
+  ]
+ },
+ {
+  "text": "Best day in ages, I feel great",
+  "proba": [
+   0.039664,
+   0.070883,
+   0.889453
+  ]
+ },
+ {
+  "text": "Lots of energy, I already went for a walk",
+  "proba": [
+   0.044988,
+   0.051005,
+   0.904007
+  ]
+ },
+ {
+  "text": "Ready to push myself a bit today",
+  "proba": [
+   0.038015,
+   0.039218,
+   0.922767
+  ]
+ },
+ {
+  "text": "I feel fantastic and motivated",
+  "proba": [
+   0.027559,
+   0.028003,
+   0.944438
+  ]
+ },
+ {
+  "text": "Rested, refreshed and raring to go",
+  "proba": [
+   0.016932,
+   0.018566,
+   0.964502
+  ]
+ },
+ {
+  "text": "Feeling like my old self, bring it on",
+  "proba": [
+   0.22198,
+   0.034827,
+   0.743193
+  ]
+ },
+ {
+  "text": "Not tired at all, I feel awesome",
+  "proba": [
+   0.043127,
+   0.051556,
+   0.905317
+  ]
+ },
+ {
+  "text": "I'm so energetic today",
+  "proba": [
+   0.133358,
+   0.793452,
+   0.07319
+  ]
+ },
+ {
+  "text": "I feel powerful and excited to move",
+  "proba": [
+   0.016923,
+   0.012849,
+   0.970228
+  ]
+ },
+ {
+  "text": "Great sleep, great mood, let's do it",
+  "proba": [
+   0.082235,
+   0.065579,
+   0.852187
+  ]
+ },
+ {
+  "text": "Feeling really good and strong",
+  "proba": [
+   0.044731,
+   0.031964,
+   0.923305
+  ]
+ },
+ {
+  "text": "I want to sweat today!",
+  "proba": [
+   0.098615,
+   0.073021,
+   0.828364
+  ]
+ },
+ {
+  "text": "Energized and ready for the full session",
+  "proba": [
+   0.032248,
+   0.049345,
+   0.918407
+  ]
+ },
+ {
+  "text": "I feel amazing after a good night",
+  "proba": [
+   0.105038,
+   0.156986,
+   0.737976
+  ]
+ },
+ {
+  "text": "Bursting with energy",
+  "proba": [
+   0.079658,
+   0.056868,
+   0.863474
+  ]
+ },
+ {
+  "text": "",
+  "proba": [
+   0.41647,
+   0.288849,
+   0.294681
+  ]
+ },
+ {
+  "text": "I'm not tired at all",
+  "proba": [
+   0.083932,
+   0.080873,
+   0.835195
+  ]
+ },
+ {
+  "text": "Chest pain and dizzy",
+  "proba": [
+   0.410227,
+   0.18672,
+   0.403052
+  ]
+ }
+]

@@ -38,6 +38,12 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .sa-dark section a:not([style]){color:#F7B58A}
 .mode-btn{white-space:nowrap;min-height:48px;padding:0 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.5);background:transparent;color:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;cursor:pointer}
 .mode-btn:hover{background:rgba(255,255,255,0.12)}
+.ci-chip{min-height:40px;padding:0 14px;border-radius:9999px;border:1px solid #D3D0D9;background:#F7F4F8;color:#1B2236;font-family:Inter,sans-serif;font-size:14px;cursor:pointer}
+.ci-chip:hover{border-color:#8C3B6E}
+.sa-dark .ci-chip{background:#141C33;color:#F4F2F5;border-color:#2C3552}
+.sa-dark #ci-text{background:#1E2A4A !important;color:#F4F2F5 !important;border-color:#2C3552 !important}
+.sa-dark #ci-result strong{color:#F4F2F5 !important}
+#ci-text:focus-visible,.ci-chip:focus-visible{outline:3px solid #D45D79;outline-offset:2px}
 .fs-still{display:none}
 @media (prefers-reduced-motion: reduce){.fs-motion{display:none}.fs-still{display:inline}}
 .fs-b{opacity:0}
@@ -72,6 +78,7 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 </a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; font-weight: 500">
 <a href="#how">How it works</a>
+<a href="#checkin">Try a check-in</a>
 <a href="#features">Features</a>
 <a href="#story">My story</a>
 <a href="#faq">FAQ</a>
@@ -167,6 +174,39 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <span style="position: absolute; top: 16px; left: 16px; padding: 7px 12px; border-radius: 9999px; background: rgba(13,15,20,0.6); color: #FFFFFF; font-size: 13px; font-weight: 600">A short preview of Strong Again · 0:15</span>
 </div>
 <p style="margin: 0; text-align: center; font-size: 14px; color: #5F6675">Preview footage. The person shown is not the founder.</p>
+</div>
+</section>
+
+<section id="checkin" aria-labelledby="checkin-title" style="background: #FFFFFF; padding: 112px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C3B6E">Try a check-in</span>
+<h2 id="checkin-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Tell us how today feels, in your own words</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #5F6675">Type a sentence or two. A small language model reads it and suggests a Low, Steady, or Strong session. You can always choose a different one.</p>
+<form id="ci-form" style="display: flex; flex-direction: column; gap: 12px">
+<label for="ci-text" style="font-size: 15px; font-weight: 600">How are you feeling today?</label>
+<textarea id="ci-text" rows="4" maxlength="500" placeholder="e.g. Didn't sleep well and my arm is a little stiff, but I'd like to move a bit." style="font: inherit; font-size: 16px; line-height: 1.5; padding: 14px 16px; border-radius: 12px; border: 1px solid #D3D0D9; background: #FFFFFF; color: #1B2236; resize: vertical"></textarea>
+<div id="ci-examples" style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Example check-ins">
+<button type="button" class="ci-chip">Wiped out after infusion yesterday</button>
+<button type="button" class="ci-chip">Doing okay, a little stiff</button>
+<button type="button" class="ci-chip">Slept great and I feel strong!</button>
+</div>
+<button type="submit" style="align-self: flex-start; min-height: 52px; padding: 0 28px; border: 0; border-radius: 9999px; background: #8C3B6E; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Suggest a session</button>
+</form>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs entirely in your browser; what you type is not sent or saved. This is a suggestion tool, not a medical assessment.</p>
+</div>
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div id="ci-result" aria-live="polite" style="background: #F4F2F5; border-radius: 20px; padding: 32px; min-height: 260px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 16px">
+<p style="margin: 0; font-family: 'DM Serif Display', serif; font-size: 24px; line-height: 1.3">Your suggestion will appear here.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5F6675">Try one of the examples, or write your own.</p>
+</div>
+<details style="border: 1px solid #E4E1E8; border-radius: 12px; padding: 18px 20px"><summary style="font-size: 16px; font-weight: 600; cursor: pointer">How this works (for the NLP-curious)</summary>
+<div style="margin-top: 12px; font-size: 15px; line-height: 1.6; color: #5F6675; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0">Your text is split into words and word pairs, weighted with <strong>TF-IDF</strong>, and scored by a <strong>logistic regression</strong> classifier trained in Python (scikit-learn) on 660 synthetic check-in messages. A Naive Bayes model was trained as a baseline.</p>
+<p style="margin: 0">On 60 separately written test messages it is about 90% accurate. Because suggesting too much is worse than too little, the page picks the gentler option when the model is unsure. Messages that mention possible warning signs (such as chest pain, fever, or new arm swelling) get a stop-and-check message instead of a session.</p>
+<p style="margin: 0"><a href="https://github.com/saudie72/2300cNLP/tree/main/nlp">Training code and results on GitHub</a></p>
+</div></details>
+</div>
 </div>
 </section>
 
@@ -296,7 +336,7 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px">
 <div style="display: flex; align-items: center; gap: 10px"><svg width="44" height="44" viewBox="0 0 1920 1920" aria-hidden="true"><circle cx="960" cy="960" r="960" fill="#FFFFFF"></circle><g transform="translate(192 178) scale(0.8)"><path d="M568 780A400 400 0 0 1 1352 780L1140 870A180 180 0 0 0 780 870Z" fill="#F9D380"></path><path d="M1001 407 L1071 123 L849 123 L919 407ZM791 438 L725 153 L526 254 L718 475ZM623 554 L439 328 L305 506 L573 620ZM528 718 L267 586 L217 803 L509 798ZM1202 475 L1394 254 L1195 153 L1129 438ZM1347 620 L1615 506 L1481 328 L1297 554ZM1411 798 L1703 803 L1653 586 L1392 718Z" fill="#F9D380"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd" transform="translate(1920 0) scale(-1 1)"></path><circle cx="960" cy="873" r="128" fill="#D05B78"></circle><path d="M488 742L590 742C760 860 940 1030 1005 1180C1045 1290 1000 1450 955 1612C930 1450 905 1310 868 1225C800 1060 650 890 488 742Z" fill="#D05B78"></path><path d="M1437 738C1330 830 1160 950 1000 1062C988 1074 992 1090 1004 1100C1038 1145 1054 1195 1056 1250C1082 1160 1092 1085 1050 1035C1190 935 1340 835 1437 738Z" fill="#D05B78"></path></g></svg><span style="font-weight: 900; font-size: 20px; letter-spacing: -0.01em; color: #FFFFFF">STRONG <span style="color: #F9D78B">AGAIN</span></span></div>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="#how">How it works</a><a href="#features">Features</a><a href="#story">My story</a><a href="#faq">FAQ</a><a href="#get-started">Open the app</a></nav>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="#how">How it works</a><a href="#checkin">Try a check-in</a><a href="#features">Features</a><a href="#story">My story</a><a href="#faq">FAQ</a><a href="#get-started">Open the app</a></nav>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
 <p style="margin: 0; padding: 20px; border-radius: 12px; background: #141C33; font-size: 13px; line-height: 1.6"><strong style="color: #FFFFFF; font-weight: 600">Movement guidance:</strong> Strong Again provides general fitness guidance, not medical advice. Check with your care team before starting an exercise program. Follow their guidance and stop if a movement does not feel right for you.</p>
@@ -325,5 +365,109 @@ a{color:#8C3B6E}a:hover{color:#76315D}
   });
 })();
 </script>
+<script>
+/* Energy check-in classifier: TF-IDF + logistic regression, weights trained in nlp/train.py. */
+var EnergyCheckin = (function(){
+  var SESSIONS = {
+    low:    {name: 'Low',    minutes: 7,  color: '#C98A1A', blurb: 'A gentle 7-minute session. Seated and supported moves, and stopping early still counts.'},
+    steady: {name: 'Steady', minutes: 15, color: '#8C3B6E', blurb: 'A steady 15-minute session with alternates shown where available.'},
+    strong: {name: 'Strong', minutes: 30, color: '#2E8B6A', blurb: 'A fuller 30-minute session. Pause or swap any move whenever you need to.'}
+  };
+  // Possible warning signs: show a stop-and-check message instead of a session.
+  var RED_FLAGS = [
+    /chest (pain|tight)/, /short(ness)? of breath/, /(can ?not|cant|hard to) breathe/, /\bfever/, /\bdizz/, /\bfaint/,
+    /(swell|swollen)/, /\bbleed/, /\bnumb/, /severe pain/, /\binfect/, /new lump/, /(red|hot) (and )?(swollen|incision|wound|scar)/, /palpitation/, /racing heart/
+  ];
+
+  function tokenize(text){ // must match tokenize() in nlp/train.py
+    return text.toLowerCase().replace(/’/g, "'").replace(/'/g, '').split(/[^a-z0-9]+/).filter(function(t){ return t.length >= 2; });
+  }
+
+  function features(model, text){
+    var toks = tokenize(text), counts = {};
+    var terms = toks.slice();
+    for (var i = 0; i + 1 < toks.length; i++) terms.push(toks[i] + ' ' + toks[i + 1]);
+    terms.forEach(function(t){ if (t in model.vocab) counts[t] = (counts[t] || 0) + 1; });
+    var vec = {}, norm = 0;
+    Object.keys(counts).forEach(function(t){
+      var j = model.vocab[t], w = (1 + Math.log(counts[t])) * model.idf[j]; // sublinear tf * idf
+      vec[t] = w; norm += w * w;
+    });
+    norm = Math.sqrt(norm);
+    if (norm > 0) Object.keys(vec).forEach(function(t){ vec[t] /= norm; });
+    return vec;
+  }
+
+  function predict(model, text){
+    var vec = features(model, text);
+    var scores = model.intercept.slice();
+    Object.keys(vec).forEach(function(t){
+      var j = model.vocab[t];
+      for (var c = 0; c < scores.length; c++) scores[c] += model.coef[c][j] * vec[t];
+    });
+    var max = Math.max.apply(null, scores), exps = scores.map(function(s){ return Math.exp(s - max); });
+    var sum = exps.reduce(function(a, b){ return a + b; }, 0);
+    var proba = exps.map(function(e){ return e / sum; });
+    var order = [0, 1, 2].sort(function(a, b){ return proba[b] - proba[a]; });
+    // Cautious rule: when unsure, recommend the gentler of the top two (labels are ordered low < steady < strong).
+    var unsure = proba[order[0]] < model.unsure_threshold;
+    var pick = unsure ? Math.min(order[0], order[1]) : order[0];
+    var top = model.labels.map(function(label, c){
+      var words = Object.keys(vec).map(function(t){ return {t: t, w: model.coef[c][model.vocab[t]] * vec[t]}; })
+        .filter(function(x){ return x.w > 0.05; }).sort(function(a, b){ return b.w - a.w; }).slice(0, 4).map(function(x){ return x.t; });
+      return words;
+    });
+    return {label: model.labels[pick], proba: proba, unsure: unsure, known: Object.keys(vec).length, words: top[pick]};
+  }
+
+  function redFlag(text){ var s = text.toLowerCase(); return RED_FLAGS.some(function(r){ return r.test(s); }); }
+
+  function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function render(el, model, text){
+    if (!text.trim()) { el.innerHTML = '<p style="margin: 0; font-size: 16px; color: #5F6675">Type a few words about how you feel, then press Suggest a session.</p>'; return; }
+    if (redFlag(text)) {
+      el.innerHTML = '<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #C2414B">Pause first</span>' +
+        '<p style="margin: 0; font-family: \'DM Serif Display\', serif; font-size: 28px; line-height: 1.25">Let’s skip the workout and check in with your care team.</p>' +
+        '<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5F6675">You mentioned something that can be a warning sign. Please contact your care team before exercising. If it feels urgent, call your local emergency number.</p>';
+      return;
+    }
+    var r = predict(model, text), s = SESSIONS[r.label];
+    var bars = model.labels.map(function(l, i){
+      var pct = Math.round(r.proba[i] * 100);
+      return '<div style="display: grid; grid-template-columns: 64px 1fr 40px; align-items: center; gap: 10px; font-size: 14px">' +
+        '<span style="font-weight: 600">' + SESSIONS[l].name + '</span>' +
+        '<span style="height: 10px; border-radius: 9999px; background: #E4E1E8; overflow: hidden"><span style="display: block; height: 100%; width: ' + pct + '%; background: ' + SESSIONS[l].color + '"></span></span>' +
+        '<span style="color: #5F6675; text-align: right">' + pct + '%</span></div>';
+    }).join('');
+    var note = r.known === 0
+      ? 'I didn’t recognise many of those words, so this is a gentle default. Try describing your energy, sleep, or how your body feels.'
+      : r.unsure ? 'The model wasn’t sure, so it chose the gentler option.' : '';
+    var words = r.words.length ? '<p style="margin: 0; font-size: 14px; color: #5F6675">Words that shaped this: ' + r.words.map(function(w){ return '<strong style="color: #1B2236">' + esc(w) + '</strong>'; }).join(', ') + '</p>' : '';
+    el.innerHTML =
+      '<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C3B6E">Suggested for today</span>' +
+      '<p style="margin: 0; font-family: \'DM Serif Display\', serif; font-size: 34px; line-height: 1.15">' + s.name + ' session · ' + s.minutes + ' min</p>' +
+      '<p style="margin: 0; font-size: 16px; line-height: 1.6">' + s.blurb + '</p>' +
+      (note ? '<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #5F6675">' + note + '</p>' : '') +
+      '<div style="display: flex; flex-direction: column; gap: 8px">' + bars + '</div>' + words +
+      '<p style="margin: 0; font-size: 14px; color: #5F6675">Not quite right? You can always pick a different session, or rest.</p>';
+  }
+
+  function init(){
+    var form = document.getElementById('ci-form'); if (!form) return;
+    var input = document.getElementById('ci-text'), out = document.getElementById('ci-result');
+    var modelPromise = fetch('assets/energy-model.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); });
+    function run(){
+      modelPromise.then(function(m){ render(out, m, input.value); })
+        .catch(function(){ out.innerHTML = '<p style="margin: 0; font-size: 16px; color: #5F6675">Sorry, the check-in model couldn’t load. Please refresh and try again.</p>'; });
+    }
+    form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+    document.querySelectorAll('.ci-chip').forEach(function(b){ b.addEventListener('click', function(){ input.value = b.textContent; run(); }); });
+  }
+  init();
+  return {tokenize: tokenize, predict: predict, redFlag: redFlag};
+})();
+</script>
+
 </body>
 </html>
