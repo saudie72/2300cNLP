@@ -36,6 +36,10 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .sa-dark h1,.sa-dark h2,.sa-dark h3,.sa-dark p,.sa-dark li,.sa-dark summary,.sa-dark label{color:inherit}
 .sa-dark section:not([style*="gradient"]){color:#F4F2F5}
 .sa-dark section a:not([style]){color:#F7B58A}
+.nv-actions{margin-left:auto}
+@media (min-width:1241px){.nv-links{margin-left:auto}}
+@media (max-width:1240px){.nv-links{order:3;flex-basis:100%}}
+@media (max-width:480px){.nv-actions{flex-wrap:nowrap;gap:10px}.nv-actions .mode-btn{padding:0 12px}.nv-actions .nv-cta{padding:0 16px !important}}
 .mode-btn{white-space:nowrap;min-height:48px;padding:0 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.5);background:transparent;color:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;cursor:pointer}
 .mode-btn:hover{background:rgba(255,255,255,0.12)}
 .ci-stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:stretch}
@@ -167,17 +171,17 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <svg width="48" height="48" viewBox="0 0 1920 1920" aria-hidden="true"><circle cx="960" cy="960" r="960" fill="#FFFFFF"></circle><g transform="translate(192 178) scale(0.8)"><path d="M568 780A400 400 0 0 1 1352 780L1140 870A180 180 0 0 0 780 870Z" fill="#F9D380"></path><path d="M1001 407 L1071 123 L849 123 L919 407ZM791 438 L725 153 L526 254 L718 475ZM623 554 L439 328 L305 506 L573 620ZM528 718 L267 586 L217 803 L509 798ZM1202 475 L1394 254 L1195 153 L1129 438ZM1347 620 L1615 506 L1481 328 L1297 554ZM1411 798 L1703 803 L1653 586 L1392 718Z" fill="#F9D380"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd" transform="translate(1920 0) scale(-1 1)"></path><circle cx="960" cy="873" r="128" fill="#D05B78"></circle><path d="M488 742L590 742C760 860 940 1030 1005 1180C1045 1290 1000 1450 955 1612C930 1450 905 1310 868 1225C800 1060 650 890 488 742Z" fill="#D05B78"></path><path d="M1437 738C1330 830 1160 950 1000 1062C988 1074 992 1090 1004 1100C1038 1145 1054 1195 1056 1250C1082 1160 1092 1085 1050 1035C1190 935 1340 835 1437 738Z" fill="#D05B78"></path></g></svg>
 <span style="font-weight: 900; font-size: 22px; letter-spacing: -0.01em">STRONG <span style="color: #F9D78B">AGAIN</span></span>
 </a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; font-weight: 500">
+<div class="nv-links" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; font-weight: 500">
 <a href="#how">How it works</a>
 <a href="#checkin">Try a check-in</a>
 <a href="#features">Features</a>
 <a href="#story">My story</a>
 <a href="#faq">FAQ</a>
 </div>
-<div style="display: flex; align-items: center; gap: 16px">
+<div class="nv-actions" style="display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px 16px">
 <button class="mode-btn" id="mode-toggle" type="button" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg><span id="mode-label">Dark mode</span></button>
 <a href="#get-started" style="font-size: 15px; font-weight: 500">Sign in</a>
-<a href="#get-started" style="min-height: 48px; padding: 0 22px; border-radius: 9999px; background: #F9D78B; color: #1B2236; font-size: 15px; font-weight: 600; display: flex; align-items: center">Start free trial</a>
+<a href="#get-started" class="nv-cta" style="min-height: 48px; padding: 0 22px; border-radius: 9999px; background: #F9D78B; color: #1B2236; font-size: 15px; font-weight: 600; display: flex; align-items: center">Start free trial</a>
 </div>
 </nav>
 <div id="top" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 56px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
@@ -309,7 +313,6 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 </div>
 </div>
 </div>
-<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs in your browser; nothing you type is sent or saved. Not a medical assessment.</p>
 </div>
 </section>
 
