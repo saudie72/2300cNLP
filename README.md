@@ -7,6 +7,7 @@ Static landing page (plain HTML, no build step), deployed on Netlify.
 - `favicon.svg` — logo mark
 - `nlp/` — the NLP feature (see below)
 - `assets/energy-model.json` — trained model weights the page loads
+- `assets/word-map.json` — 3D word-map data built by `nlp/word_map.py`
 - `netlify.toml` — publishes the repo root; long-cache headers for `/assets/*`
 
 Run locally: `python3 -m http.server` and open http://localhost:8000.
@@ -44,4 +45,20 @@ pip install -r nlp/requirements.txt
 python3 nlp/make_dataset.py   # rebuild nlp/data/checkins_train.csv
 python3 nlp/train.py          # train, evaluate, export assets/energy-model.json
 node nlp/check_parity.js      # confirm the JS port matches scikit-learn
+```
+
+## NLP feature: 3D word map (word embeddings, Ch05)
+
+The "Word map" section shows 127 words from six themes (tiredness, energy, feelings, body,
+movement, treatment) as a rotating 3D point cloud. The positions come from pretrained **GloVe**
+vectors (100 dimensions, Wikipedia + Gigaword) reduced to 3D with **PCA**. Selecting a word draws
+lines to its six nearest neighbours by cosine similarity in the full 100-D space. The map tours
+through words on its own until the visitor drags, clicks or searches.
+
+The three PCA components keep about 29% of the variance, so words that look close in 3D are not
+always nearest neighbours; the neighbour list and lines use the full vectors.
+
+```bash
+curl -L -o glove100.gz https://github.com/RaRe-Technologies/gensim-data/releases/download/glove-wiki-gigaword-100/glove-wiki-gigaword-100.gz
+python3 nlp/word_map.py glove100.gz
 ```

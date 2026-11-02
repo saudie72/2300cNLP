@@ -94,6 +94,47 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .sa-dark .ci-input .ci-num{background:#F7B58A;color:#1E2A4A}
 .sa-dark .ci-legend,.sa-dark .ci-input .ci-muted{color:#A9AEBB}
 @media (prefers-reduced-motion: reduce){.ci-tok,.ci-dot{animation:none}.ci-fill,.ci-result{transition:none}}
+.ci-examples{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.ci-examples .ci-chip{flex:0 0 auto;white-space:nowrap}
+.ci-try{flex:0 0 auto;align-self:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8C3B6E;margin-right:4px}
+.sa-dark .ci-try{color:#F7B58A}
+.wm-stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:stretch}
+@media (max-width:860px){.wm-stage{grid-template-columns:minmax(0,1fr)}}
+.wm-canvas-wrap{position:relative;min-width:0;height:min(620px,75vw);min-height:380px;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#1E2A4A 0%,#141C33 60%,#0D0F14 100%)}
+#wm-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+.wm-pill{position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:9999px;background:rgba(13,15,20,.6);color:#F9D78B;font-size:13px;font-weight:600}
+.wm-pill[hidden]{display:none}
+.wm-hint{position:absolute;bottom:14px;left:16px;font-size:12px;color:#A9AEBB}
+.wm-src{position:absolute;bottom:14px;right:16px;font-size:12px;color:#5F6675}
+.wm-err{position:absolute;inset:auto 16px 50% 16px;margin:0;text-align:center;color:#F4F2F5}
+.wm-side{min-width:0;display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#FFFFFF;border:1px solid #E4E1E8}
+.wm-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8C3B6E}
+#wm-search{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid #D3D0D9;background:#F7F4F8;color:#1B2236;width:100%;box-sizing:border-box}
+#wm-search.wm-miss{border-color:#C2414B}
+#wm-search:focus-visible,.wm-nn button:focus-visible{outline:3px solid #D45D79;outline-offset:2px}
+.wm-focus{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:6px 0}
+.wm-word{font-family:'DM Serif Display',serif;font-size:40px;line-height:1.05;color:#1B2236}
+.wm-group{--gc:#8C3B6E;font-size:13px;font-weight:600;padding:4px 10px;border-radius:9999px;background:#F4F2F5;color:#1B2236;box-shadow:inset 3px 0 0 var(--gc)}
+.wm-nn{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.wm-nn button{width:100%;display:grid;grid-template-columns:10px minmax(0,1fr) 70px 40px;align-items:center;gap:10px;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:#1B2236;font:inherit;font-size:15px;text-align:left;cursor:pointer}
+.wm-nn button:hover{background:#F4F2F5}
+.wm-nn i{width:10px;height:10px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.2)}
+.wm-nn b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:#5F6675;font-size:13px}
+.wm-bar{height:6px;border-radius:9999px;background:#E4E1E8;overflow:hidden}
+.wm-bar span{display:block;height:100%;background:#8C3B6E;border-radius:9999px}
+.wm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:#5F6675;margin-top:auto;padding-top:8px;border-top:1px solid #E4E1E8}
+.wm-legend span{display:inline-flex;align-items:center;gap:6px}
+.wm-legend i{width:10px;height:10px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.15)}
+.sa-dark .wm-side{background:#141C33;border-color:#2C3552}
+.sa-dark .wm-word,.sa-dark .wm-nn button{color:#F4F2F5}
+.sa-dark .wm-group{background:#2C3552;color:#F4F2F5}
+.sa-dark .wm-nn button:hover{background:#1E2A4A}
+.sa-dark .wm-bar{background:#2C3552}.sa-dark .wm-bar span{background:#F7B58A}
+.sa-dark .wm-label{color:#F7B58A}
+.sa-dark #wm-search{background:#0D0F14;color:#F4F2F5;border-color:#2C3552}
+.sa-dark .wm-legend,.sa-dark .wm-nn b{color:#A9AEBB}
+.sa-dark .wm-legend{border-color:#2C3552}
+@media (prefers-reduced-motion: reduce){.wm-pill{display:none}}
 .fs-still{display:none}
 @media (prefers-reduced-motion: reduce){.fs-motion{display:none}.fs-still{display:inline}}
 .fs-b{opacity:0}
@@ -231,8 +272,13 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
 <div style="max-width: 760px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C3B6E">Try a check-in</span>
-<h2 id="checkin-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Tell us how today feels. Watch it read along.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #5F6675">Every word you type nudges the suggestion toward a gentler or a stronger session. Watch the words light up and the bars move as you type.</p>
+<h2 id="checkin-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">How does today feel?</h2>
+</div>
+<div id="ci-examples" class="ci-examples" aria-label="Example check-ins"><span class="ci-try">Try</span>
+<button type="button" class="ci-chip">Wiped out after infusion yesterday, my legs feel heavy</button>
+<button type="button" class="ci-chip">Doing okay, a little stiff but fine</button>
+<button type="button" class="ci-chip">Slept great and I feel strong, let's go!</button>
+<button type="button" class="ci-chip">Not tired at all today</button>
 </div>
 <div class="ci-stage">
 <div class="ci-panel ci-input">
@@ -241,12 +287,7 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <span id="ci-demo-pill" class="ci-pill"><span class="ci-dot"></span>Playing a demo. Click the box to type your own</span>
 </div>
 <textarea id="ci-text" rows="4" maxlength="500" spellcheck="false">Wiped out after infusion yesterday, my legs feel heavy</textarea>
-<div id="ci-examples" style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Example check-ins">
-<button type="button" class="ci-chip">Wiped out after infusion yesterday, my legs feel heavy</button>
-<button type="button" class="ci-chip">Doing okay, a little stiff but fine</button>
-<button type="button" class="ci-chip">Slept great and I feel strong, let's go!</button>
-<button type="button" class="ci-chip">Not tired at all today</button>
-</div>
+
 <div class="ci-step">
 <span class="ci-step-label"><span class="ci-num">1</span>It reads your words</span>
 <div id="ci-tokens" class="ci-tokens" aria-live="off"></div>
@@ -268,7 +309,36 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 </div>
 </div>
 </div>
-<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs entirely in your browser; what you type is not sent or saved. This is a suggestion, not a medical assessment. Under the hood: TF-IDF features and a logistic regression classifier, about 90% accurate on test messages. <a href="https://github.com/saudie72/2300cNLP/tree/main/nlp">See the code and results</a>.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs in your browser; nothing you type is sent or saved. Not a medical assessment.</p>
+</div>
+</section>
+
+<section id="word-map" aria-labelledby="wm-title" style="background: #F4F2F5; padding: 112px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C3B6E">Word map</span>
+<h2 id="wm-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Words that travel together</h2>
+</div>
+<div class="wm-stage">
+<div class="wm-canvas-wrap">
+<canvas id="wm-canvas" role="img" aria-label="A rotating 3D map of words. Related words sit close together and the selected word is linked to its nearest neighbours."></canvas>
+<span id="wm-tour-pill" class="wm-pill"><span class="ci-dot"></span>Touring. Drag or click to explore</span>
+<span class="wm-hint">Drag to spin · Click a word</span>
+<span class="wm-src">GloVe 100-d vectors · PCA to 3D</span>
+</div>
+<div class="wm-side">
+<label for="wm-search" class="wm-label">Find a word</label>
+<input id="wm-search" list="wm-list" autocomplete="off" spellcheck="false" placeholder="tired, yoga, shoulder…">
+<datalist id="wm-list"></datalist>
+<div class="wm-focus">
+<span id="wm-word" class="wm-word">tired</span>
+<span id="wm-group" class="wm-group"></span>
+</div>
+<span class="wm-label">Closest words</span>
+<ol id="wm-neighbours" class="wm-nn"></ol>
+<div id="wm-legend" class="wm-legend"></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -398,7 +468,7 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px">
 <div style="display: flex; align-items: center; gap: 10px"><svg width="44" height="44" viewBox="0 0 1920 1920" aria-hidden="true"><circle cx="960" cy="960" r="960" fill="#FFFFFF"></circle><g transform="translate(192 178) scale(0.8)"><path d="M568 780A400 400 0 0 1 1352 780L1140 870A180 180 0 0 0 780 870Z" fill="#F9D380"></path><path d="M1001 407 L1071 123 L849 123 L919 407ZM791 438 L725 153 L526 254 L718 475ZM623 554 L439 328 L305 506 L573 620ZM528 718 L267 586 L217 803 L509 798ZM1202 475 L1394 254 L1195 153 L1129 438ZM1347 620 L1615 506 L1481 328 L1297 554ZM1411 798 L1703 803 L1653 586 L1392 718Z" fill="#F9D380"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd"></path><path d="M188 890C185 1350 450 1740 948 1840C950 1600 900 1380 780 1240C600 1060 400 960 188 890ZM318 1198C420 1220 520 1250 620 1300C760 1380 840 1500 862 1700C620 1600 400 1420 318 1198Z" fill="#532A5F" fill-rule="evenodd" transform="translate(1920 0) scale(-1 1)"></path><circle cx="960" cy="873" r="128" fill="#D05B78"></circle><path d="M488 742L590 742C760 860 940 1030 1005 1180C1045 1290 1000 1450 955 1612C930 1450 905 1310 868 1225C800 1060 650 890 488 742Z" fill="#D05B78"></path><path d="M1437 738C1330 830 1160 950 1000 1062C988 1074 992 1090 1004 1100C1038 1145 1054 1195 1056 1250C1082 1160 1092 1085 1050 1035C1190 935 1340 835 1437 738Z" fill="#D05B78"></path></g></svg><span style="font-weight: 900; font-size: 20px; letter-spacing: -0.01em; color: #FFFFFF">STRONG <span style="color: #F9D78B">AGAIN</span></span></div>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="#how">How it works</a><a href="#checkin">Try a check-in</a><a href="#features">Features</a><a href="#story">My story</a><a href="#faq">FAQ</a><a href="#get-started">Open the app</a></nav>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="#how">How it works</a><a href="#checkin">Try a check-in</a><a href="#word-map">Word map</a><a href="#features">Features</a><a href="#story">My story</a><a href="#faq">FAQ</a><a href="#get-started">Open the app</a></nav>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
 <p style="margin: 0; padding: 20px; border-radius: 12px; background: #141C33; font-size: 13px; line-height: 1.6"><strong style="color: #FFFFFF; font-weight: 600">Movement guidance:</strong> Strong Again provides general fitness guidance, not medical advice. Check with your care team before starting an exercise program. Follow their guidance and stop if a movement does not feel right for you.</p>
@@ -556,6 +626,136 @@ var EnergyCheckin = (function(){
   }
   init();
   return {tokenize: tokenize, predict: predict, redFlag: redFlag};
+})();
+</script>
+
+<script>
+/* 3D word map: GloVe vectors reduced to 3D with PCA (built by nlp/word_map.py). */
+(function(){
+  var canvas = document.getElementById('wm-canvas'); if (!canvas) return;
+  var ctx = canvas.getContext('2d'), wrap = canvas.parentNode;
+  var search = document.getElementById('wm-search'), list = document.getElementById('wm-list');
+  var wordEl = document.getElementById('wm-word'), groupEl = document.getElementById('wm-group');
+  var nnEl = document.getElementById('wm-neighbours'), legendEl = document.getElementById('wm-legend'), pill = document.getElementById('wm-tour-pill');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var data = null, sel = 0, yaw = 0.6, pitch = -0.25, W = 0, H = 0, dpr = 1, touring = !reduce, visible = false;
+  var drag = null, proj = [], hover = -1, glow = 0, tourTimer = null;
+  var TOUR = ['tired', 'energetic', 'chemotherapy', 'shoulder', 'yoga', 'anxious', 'recovery', 'exhausted', 'swimming'];
+
+  function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function resize(){
+    var r = wrap.getBoundingClientRect(); dpr = window.devicePixelRatio || 1;
+    W = r.width; H = r.height; canvas.width = W * dpr; canvas.height = H * dpr;
+  }
+  function select(i){
+    sel = i; glow = 1;
+    var w = data.words[i], g = data.groups[w.g];
+    wordEl.textContent = w.w; groupEl.textContent = g.name; groupEl.style.setProperty('--gc', g.color);
+    nnEl.innerHTML = w.n.map(function(j, k){
+      var n = data.words[j], pct = Math.round(w.s[k] * 100);
+      return '<li><button type="button" data-i="' + j + '"><i style="background:' + data.groups[n.g].color + '"></i><span>' + esc(n.w) + '</span><span class="wm-bar"><span style="width:' + pct + '%"></span></span><b>' + w.s[k].toFixed(2) + '</b></button></li>';
+    }).join('');
+  }
+  function stopTour(){ if (!touring) return; touring = false; clearTimeout(tourTimer); pill.hidden = true; }
+  function tour(k){
+    if (!touring) return;
+    var i = data.words.findIndex(function(w){ return w.w === TOUR[k % TOUR.length]; });
+    if (i >= 0) select(i);
+    tourTimer = setTimeout(function(){ tour(k + 1); }, 3200);
+  }
+
+  function draw(){
+    if (!data) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    var cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    var scale = Math.min(W, H) * 0.5, cam = 3.2;
+    proj = data.words.map(function(w, i){
+      var x = w.p[0], y = w.p[1], z = w.p[2];
+      var x1 = x * cy + z * sy, z1 = -x * sy + z * cy;
+      var y1 = y * cp - z1 * sp, z2 = y * sp + z1 * cp;
+      var f = cam / (cam + z2);
+      return {i: i, x: W / 2 + x1 * f * scale, y: H / 2 + y1 * f * scale, z: z2, f: f};
+    });
+    var near = {}; data.words[sel].n.forEach(function(j){ near[j] = 1; });
+    var S = proj[sel];
+    // links from the selected word to its neighbours
+    ctx.lineWidth = 1.5;
+    data.words[sel].n.forEach(function(j, k){
+      var P = proj[j];
+      ctx.strokeStyle = 'rgba(249,215,139,' + (0.25 + data.words[sel].s[k] * 0.6).toFixed(2) + ')';
+      ctx.beginPath(); ctx.moveTo(S.x, S.y); ctx.lineTo(P.x, P.y); ctx.stroke();
+    });
+    var order = proj.slice().sort(function(a, b){ return b.z - a.z; });
+    var info = {};
+    order.forEach(function(P){
+      var w = data.words[P.i], col = data.groups[w.g].color, isSel = P.i === sel, isNear = near[P.i], isHover = P.i === hover;
+      var depth = Math.max(0.25, Math.min(1, (P.f - 0.7) / 0.6)), hot = isSel || isNear || isHover;
+      var r = (isSel ? 9 : isNear ? 6 : 3.5) * P.f;
+      info[P.i] = {r: r, hot: hot, depth: depth};
+      ctx.globalAlpha = hot ? 1 : 0.35 + depth * 0.45;
+      if (isSel) { ctx.fillStyle = 'rgba(249,215,139,' + (0.25 * glow + 0.15).toFixed(2) + ')'; ctx.beginPath(); ctx.arc(P.x, P.y, r * (2.2 + glow), 0, 6.283); ctx.fill(); }
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(P.x, P.y, r, 0, 6.283); ctx.fill();
+    });
+    // Labels: selected word and neighbours first, then other words front to back wherever there is room.
+    var placed = [], labelOrder = proj.slice().sort(function(a, b){
+      var ha = info[a.i].hot ? (a.i === sel ? 2 : 1) : 0, hb = info[b.i].hot ? (b.i === sel ? 2 : 1) : 0;
+      return hb - ha || a.z - b.z;
+    });
+    ctx.textBaseline = 'middle';
+    labelOrder.forEach(function(P){
+      var w = data.words[P.i], I = info[P.i], isSel = P.i === sel;
+      var fs = isSel ? 18 : I.hot ? 14 : 11.5;
+      ctx.font = (I.hot ? '600 ' : '400 ') + fs + 'px Inter, sans-serif';
+      var tw = ctx.measureText(w.w).width, x = P.x + I.r + 4, box = [x - 2, P.y - fs / 2 - 2, x + tw + 2, P.y + fs / 2 + 2];
+      if (!I.hot && placed.some(function(b){ return box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]; })) return;
+      placed.push(box);
+      ctx.globalAlpha = I.hot ? 1 : 0.4 + I.depth * 0.45;
+      ctx.fillStyle = isSel ? '#F9D78B' : I.hot ? '#FFFFFF' : data.groups[w.g].color;
+      ctx.fillText(w.w, x, P.y);
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  function loop(){
+    if (visible && !drag && !reduce) yaw += 0.0025;
+    if (glow > 0) glow = Math.max(0, glow - 0.02);
+    draw(); requestAnimationFrame(loop);
+  }
+  function pick(e){
+    var r = canvas.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, best = -1, bd = 22 * 22;
+    proj.forEach(function(P){ var d = (P.x - x) * (P.x - x) + (P.y - y) * (P.y - y); if (d < bd) { bd = d; best = P.i; } });
+    return best;
+  }
+  canvas.addEventListener('pointerdown', function(e){ stopTour(); drag = {x: e.clientX, y: e.clientY, moved: 0}; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', function(e){
+    if (drag) {
+      var dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.moved += Math.abs(dx) + Math.abs(dy);
+      yaw += dx * 0.008; pitch = Math.max(-1.3, Math.min(1.3, pitch + dy * 0.008)); drag.x = e.clientX; drag.y = e.clientY;
+    } else { hover = pick(e); canvas.style.cursor = hover >= 0 ? 'pointer' : 'grab'; }
+  });
+  canvas.addEventListener('pointerup', function(e){ if (drag && drag.moved < 6) { var i = pick(e); if (i >= 0) select(i); } drag = null; });
+  canvas.addEventListener('pointerleave', function(){ hover = -1; });
+  nnEl.addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) { stopTour(); select(+b.dataset.i); } });
+  search.addEventListener('focus', stopTour);
+  search.addEventListener('input', function(){
+    var v = search.value.trim().toLowerCase(), i = data ? data.words.findIndex(function(w){ return w.w === v; }) : -1;
+    search.classList.toggle('wm-miss', v.length > 2 && i < 0 && !data.words.some(function(w){ return w.w.indexOf(v) === 0; }));
+    if (i >= 0) select(i);
+  });
+
+  fetch('assets/word-map.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
+    data = d;
+    list.innerHTML = d.words.map(function(w){ return '<option value="' + esc(w.w) + '">'; }).join('');
+    legendEl.innerHTML = d.groups.map(function(g){ return '<span><i style="background:' + g.color + '"></i>' + esc(g.name) + '</span>'; }).join('');
+    resize(); select(d.words.findIndex(function(w){ return w.w === 'tired'; }));
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(wrap); else window.addEventListener('resize', resize);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting;
+      if (visible && touring && !tourTimer) tourTimer = setTimeout(function(){ tour(1); }, 2000);
+    }, {threshold: 0.3}).observe(wrap); else visible = true;
+    if (reduce) pill.hidden = true;
+    requestAnimationFrame(loop);
+  }).catch(function(){ pill.hidden = true; wrap.insertAdjacentHTML('beforeend', '<p class="wm-err">The word map didn’t load. Refresh the page to try again.</p>'); });
 })();
 </script>
 
