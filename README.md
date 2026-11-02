@@ -55,6 +55,12 @@ vectors (100 dimensions, Wikipedia + Gigaword) reduced to 3D with **PCA**. Selec
 lines to its six nearest neighbours by cosine similarity in the full 100-D space. The map tours
 through words on its own until the visitor drags, clicks or searches.
 
+The phone beside the map shows what the app does with the selected word. Each theme maps to an
+app feature: tiredness and energy words pick a Low or Strong session, body words open a body-signal
+check-in (Good / Pull / Stop), movement words open an exercise card whose alternates are the move's
+nearest neighbours on the map (running words open the walk-run path), feeling words draft a community
+post tagged with related feelings, and treatment words fill the matching treatment-profile row.
+
 The three PCA components keep about 29% of the variance, so words that look close in 3D are not
 always nearest neighbours; the neighbour list and lines use the full vectors.
 

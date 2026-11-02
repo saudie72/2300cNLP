@@ -95,8 +95,6 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .ci-examples .ci-chip{flex:0 0 auto;white-space:nowrap}
 .ci-try{flex:0 0 auto;align-self:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8C3B6E;margin-right:4px}
 .sa-dark .ci-try{color:#F7B58A}
-.wm-stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:stretch}
-@media (max-width:860px){.wm-stage{grid-template-columns:minmax(0,1fr)}}
 .wm-canvas-wrap{position:relative;min-width:0;height:min(620px,75vw);min-height:380px;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#1E2A4A 0%,#141C33 60%,#0D0F14 100%)}
 #wm-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
 .wm-pill{position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:9999px;background:rgba(13,15,20,.6);color:#F9D78B;font-size:13px;font-weight:600}
@@ -104,33 +102,56 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .wm-hint{position:absolute;bottom:14px;left:16px;font-size:12px;color:#A9AEBB}
 .wm-src{position:absolute;bottom:14px;right:16px;font-size:12px;color:#5F6675}
 .wm-err{position:absolute;inset:auto 16px 50% 16px;margin:0;text-align:center;color:#F4F2F5}
-.wm-side{min-width:0;display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#FFFFFF;border:1px solid #E4E1E8}
+.wm-stage{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:28px;align-items:start}
+@media (max-width:860px){.wm-stage{grid-template-columns:minmax(0,1fr)}.wm-side{justify-self:center}}
+.wm-left{min-width:0;display:flex;flex-direction:column;gap:14px}
+.wm-side{display:flex;flex-direction:column;gap:14px;width:270px;max-width:100%}
+.wm-side .wm-phone{flex:none;width:270px;max-width:100%;height:540px;box-shadow:0 24px 48px rgba(13,15,20,.25)}
+.wm-phone .ci-opt{padding:10px 12px}.wm-phone .ci-opt.ci-on{padding:9px 11px}
+.wm-row{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.wm-row .wm-label b{color:#1B2236;text-transform:none;letter-spacing:0;font-size:15px}
+.wm-nn{display:flex;flex-wrap:wrap;gap:8px}
+.wm-nn button{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:9999px;border:1px solid #D3D0D9;background:#FFFFFF;color:#1B2236;font:inherit;font-size:14px;cursor:pointer}
+.wm-nn button:hover{border-color:#8C3B6E}
+.wm-nn b{font-weight:600;font-size:12px;color:#8C3B6E;font-variant-numeric:tabular-nums}
+.wm-nn i{width:9px;height:9px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.2)}
+.wm-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:#5F6675}
+.wm-legend span{display:inline-flex;align-items:center;gap:6px}
+.wm-legend em{font-style:normal;color:#8C3B6E;font-weight:600}
+.wm-legend i{width:10px;height:10px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.15)}
+.wm-rest span:last-child{color:#5F6675}
+.wm-phone .ci-opt span{white-space:nowrap}
+.wm-art{height:110px;flex:none;border-radius:14px;background:linear-gradient(160deg,#4B2E5E,#8C3B6E);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.wm-mini{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:12px;background:#FFFFFF;font-size:13px;font-weight:600}
+.wm-mini span:last-child{font-size:11px;color:#5F6675;font-weight:500}
+.wm-toggle{width:34px;height:20px;border-radius:9999px;background:#8C3B6E;position:relative}
+.wm-toggle::after{content:"";position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:9999px;background:#FFFFFF}
+.wm-post{padding:12px;border-radius:12px;background:#FFFFFF;border:1px solid #D3D0D9;font-size:14px;line-height:1.5;min-height:80px}
+.wm-tags{display:flex;flex-wrap:wrap;gap:6px}
+.wm-tags span{padding:4px 9px;border-radius:9999px;background:#FFFFFF;border:1px solid #D3D0D9;font-size:12px}
+.wm-tags span.on{background:#FBF3F7;border-color:#8C3B6E;color:#8C3B6E;font-weight:600}
+.wm-note{margin:0;font-size:12px;line-height:1.45;color:#5F6675}
+.wm-note-dark{color:#A9AEBB}
+.wm-sub{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#8C3B6E}
+.wm-progress{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.wm-progress i{height:3px;border-radius:9999px;background:#2C3552}.wm-progress i.on{background:#F9D78B}
+.wm-badge{align-self:flex-start;font-size:11px;font-weight:600;color:#1B2236;background:#F9D78B;border-radius:9999px;padding:4px 9px}
+.wm-q{font-size:13px;font-weight:600;margin-top:6px}
+.wm-signal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wm-signal span{height:52px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:600}
+.wm-signal i{width:10px;height:10px;border-radius:9999px}
+.wm-signal .good{background:rgba(46,139,106,.35);border:2px solid #2E8B6A}.wm-signal .good i{background:#4FC79A}
+.wm-signal .pull{background:rgba(201,138,26,.18);border:1px solid #C98A1A}.wm-signal .pull i{background:#C98A1A}
+.wm-signal .stop{background:rgba(194,65,75,.2);border:1px solid #C2414B}.wm-signal .stop i{background:#C2414B}
+.ci-start.wm-gold{background:#F9D78B;color:#1B2236}
 .wm-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8C3B6E}
-#wm-search{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid #D3D0D9;background:#F7F4F8;color:#1B2236;width:100%;box-sizing:border-box}
+#wm-search{font:inherit;font-size:15px;padding:12px 14px;border-radius:9999px;border:1px solid #D3D0D9;background:#FFFFFF;color:#1B2236;width:100%;box-sizing:border-box}
 #wm-search.wm-miss{border-color:#C2414B}
 #wm-search:focus-visible,.wm-nn button:focus-visible{outline:3px solid #D45D79;outline-offset:2px}
-.wm-focus{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:6px 0}
-.wm-word{font-family:'DM Serif Display',serif;font-size:40px;line-height:1.05;color:#1B2236}
-.wm-group{--gc:#8C3B6E;font-size:13px;font-weight:600;padding:4px 10px;border-radius:9999px;background:#F4F2F5;color:#1B2236;box-shadow:inset 3px 0 0 var(--gc)}
-.wm-nn{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
-.wm-nn button{width:100%;display:grid;grid-template-columns:10px minmax(0,1fr) 70px 40px;align-items:center;gap:10px;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:#1B2236;font:inherit;font-size:15px;text-align:left;cursor:pointer}
-.wm-nn button:hover{background:#F4F2F5}
-.wm-nn i{width:10px;height:10px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.2)}
-.wm-nn b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:#5F6675;font-size:13px}
-.wm-bar{height:6px;border-radius:9999px;background:#E4E1E8;overflow:hidden}
-.wm-bar span{display:block;height:100%;background:#8C3B6E;border-radius:9999px}
-.wm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:#5F6675;margin-top:auto;padding-top:8px;border-top:1px solid #E4E1E8}
-.wm-legend span{display:inline-flex;align-items:center;gap:6px}
-.wm-legend i{width:10px;height:10px;border-radius:9999px;box-shadow:0 0 0 1px rgba(27,34,54,.15)}
-.sa-dark .wm-side{background:#141C33;border-color:#2C3552}
-.sa-dark .wm-word,.sa-dark .wm-nn button{color:#F4F2F5}
-.sa-dark .wm-group{background:#2C3552;color:#F4F2F5}
-.sa-dark .wm-nn button:hover{background:#1E2A4A}
-.sa-dark .wm-bar{background:#2C3552}.sa-dark .wm-bar span{background:#F7B58A}
-.sa-dark .wm-label{color:#F7B58A}
-.sa-dark #wm-search{background:#0D0F14;color:#F4F2F5;border-color:#2C3552}
-.sa-dark .wm-legend,.sa-dark .wm-nn b{color:#A9AEBB}
-.sa-dark .wm-legend{border-color:#2C3552}
+.sa-dark .wm-row .wm-label b{color:#F4F2F5}
+.sa-dark .wm-nn button,.sa-dark #wm-search{background:#141C33;color:#F4F2F5;border-color:#2C3552}
+.sa-dark .wm-nn b,.sa-dark .wm-label,.sa-dark .wm-legend em{color:#F7B58A}
+.sa-dark .wm-legend{color:#A9AEBB}
 @media (prefers-reduced-motion: reduce){.wm-pill{display:none}}
 .fs-still{display:none}
 @media (prefers-reduced-motion: reduce){.fs-motion{display:none}.fs-still{display:inline}}
@@ -324,23 +345,20 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 <h2 id="wm-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Words that travel together</h2>
 </div>
 <div class="wm-stage">
+<div class="wm-left">
 <div class="wm-canvas-wrap">
 <canvas id="wm-canvas" role="img" aria-label="A rotating 3D map of words. Related words sit close together and the selected word is linked to its nearest neighbours."></canvas>
 <span id="wm-tour-pill" class="wm-pill"><span class="ci-dot"></span>Touring. Drag or click to explore</span>
 <span class="wm-hint">Drag to spin · Click a word</span>
 <span class="wm-src">GloVe 100-d vectors · PCA to 3D</span>
 </div>
-<div class="wm-side">
-<label for="wm-search" class="wm-label">Find a word</label>
-<input id="wm-search" list="wm-list" autocomplete="off" spellcheck="false" placeholder="tired, yoga, shoulder…">
-<datalist id="wm-list"></datalist>
-<div class="wm-focus">
-<span id="wm-word" class="wm-word">tired</span>
-<span id="wm-group" class="wm-group"></span>
-</div>
-<span class="wm-label">Closest words</span>
-<ol id="wm-neighbours" class="wm-nn"></ol>
+<div class="wm-row"><span class="wm-label">Closest to <b id="wm-word">tired</b></span><div id="wm-neighbours" class="wm-nn"></div></div>
 <div id="wm-legend" class="wm-legend"></div>
+</div>
+<div class="wm-side">
+<input id="wm-search" list="wm-list" autocomplete="off" spellcheck="false" placeholder="Find a word: tired, yoga, knee…" aria-label="Find a word">
+<datalist id="wm-list"></datalist>
+<div id="wm-phone" class="ci-phone ci-ph-light wm-phone" aria-live="polite"></div>
 </div>
 </div>
 </div>
@@ -640,26 +658,102 @@ var EnergyCheckin = (function(){
   var canvas = document.getElementById('wm-canvas'); if (!canvas) return;
   var ctx = canvas.getContext('2d'), wrap = canvas.parentNode;
   var search = document.getElementById('wm-search'), list = document.getElementById('wm-list');
-  var wordEl = document.getElementById('wm-word'), groupEl = document.getElementById('wm-group');
+  var wordEl = document.getElementById('wm-word');
   var nnEl = document.getElementById('wm-neighbours'), legendEl = document.getElementById('wm-legend'), pill = document.getElementById('wm-tour-pill');
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var data = null, sel = 0, yaw = 0.6, pitch = -0.25, W = 0, H = 0, dpr = 1, touring = !reduce, visible = false;
   var drag = null, proj = [], hover = -1, glow = 0, tourTimer = null;
-  var TOUR = ['tired', 'energetic', 'chemotherapy', 'shoulder', 'yoga', 'anxious', 'recovery', 'exhausted', 'swimming'];
+  var TOUR = ['tired', 'shoulder', 'yoga', 'anxious', 'chemotherapy', 'energetic', 'running', 'knee', 'exhausted', 'grateful', 'swimming', 'surgery'];
 
   function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function resize(){
     var r = wrap.getBoundingClientRect(); dpr = window.devicePixelRatio || 1;
     W = r.width; H = r.height; canvas.width = W * dpr; canvas.height = H * dpr;
   }
+  // ---- What the app does with the selected word -------------------------------------------
+  var FEATURES = ['Energy sessions', 'Energy sessions', 'Community', 'Body signals', 'Exercise cards', 'Treatment profile'];
+  function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+  function related(w, g){ return w.n.filter(function(j){ return data.words[j].g === g; }).map(function(j){ return data.words[j].w; }); }
+  function picker(on){
+    return [['low', 'Low', '7 min'], ['steady', 'Steady', '15 min'], ['strong', 'Strong', '30 min']].map(function(o){
+      return '<div class="ci-opt' + (o[0] === on ? ' ci-on' : '') + '"><span>' + o[1] + '</span><span>' + o[2] + '</span></div>';
+    }).join('');
+  }
+  function status(left){ return '<div class="ci-ph-status"><span>' + left + '</span><span>Today</span></div>'; }
+  var PATH = [['Phase 1', 'Walk 20 min'], ['Phase 2', 'Walk 4 · Jog 1'], ['Phase 3', 'Walk 2 · Jog 2'], ['Phase 4', 'Jog 10 min']];
+  var PHASE = {walk: 0, hike: 0, jog: 1, run: 2, running: 2, sprint: 3, marathon: 3};
+  var BODY_MOVE = {shoulder: 'Wall Pushup', arm: 'Wall Pushup', chest: 'Wall Pushup', elbow: 'Wall Pushup', wrist: 'Wall Pushup', hand: 'Wall Pushup',
+    neck: 'Neck Release', back: 'Seated Row', spine: 'Cat-Cow Stretch', leg: 'Sit-to-Stand', legs: 'Sit-to-Stand', knee: 'Sit-to-Stand', hip: 'Glute Bridge',
+    ankle: 'Calf Raise', heart: 'Easy Walk', lungs: 'Breathing Drill', muscles: 'Full-Body Stretch', joints: 'Gentle Mobility', bones: 'Sit-to-Stand', skin: 'Gentle Mobility', breast: 'Wall Pushup'};
+  var PROFILE = {surgery: 'Surgery', mastectomy: 'Surgery', biopsy: 'Surgery', chemo: 'Treatment', chemotherapy: 'Treatment', radiation: 'Treatment', infusion: 'Treatment',
+    medication: 'Treatment', therapy: 'Treatment', treatment: 'Treatment', doctor: 'Care team', nurse: 'Care team', oncologist: 'Care team', hospital: 'Care team', clinic: 'Care team'};
+
+  function renderApp(i){
+    var w = data.words[i], word = esc(w.w), phone = document.getElementById('wm-phone'), html = '', dark = false;
+    if (w.g === 0) {
+      html = status('Energy sessions') + '<span class="ci-ph-title">How do you feel today?</span>' + picker('low') +
+        '<div class="ci-opt wm-rest"><span>Rest day</span><span>0 min</span></div>' +
+        '<div class="ci-today"><span class="k">Today</span><span class="t">Low session · 7 min</span><span class="d">Read “' + word + '” as a low-energy day. Rest counts too.</span></div>' +
+        '<span class="ci-start">Start today’s session</span>';
+    } else if (w.g === 1) {
+      html = status('Energy sessions') + '<span class="ci-ph-title">How do you feel today?</span>' + picker('strong') +
+        '<div class="ci-today"><span class="k">Today</span><span class="t">Strong session · 30 min</span><span class="d">Read “' + word + '” as a high-energy day.</span></div>' +
+        '<div class="wm-mini"><span>Return-to-running path</span><span>Optional</span></div><span class="ci-start">Start today’s session</span>';
+    } else if (w.g === 2) {
+      var tags = [w.w].concat(related(w, 2)).slice(0, 4);
+      html = status('Community') + '<span class="ci-ph-title">Share with the community</span>' +
+        '<div class="wm-post">Feeling ' + word + ' today. Took it one session at a time.</div>' +
+        '<div class="wm-tags">' + tags.map(function(t, k){ return '<span' + (k ? '' : ' class="on"') + '>#' + esc(t) + '</span>'; }).join('') + '</div>' +
+        '<div class="wm-mini"><span>Post anonymously</span><span class="wm-toggle"></span></div>' +
+        '<p class="wm-note">Participation is optional. Review the community guidelines before posting.</p>' +
+        '<span class="ci-start">Share</span>';
+    } else if (w.g === 3) {
+      dark = true;
+      var move = BODY_MOVE[w.w] || 'Gentle Mobility';
+      html = '<div class="ci-ph-status"><span>Move 3 of 5</span><span>6:40 left</span></div>' +
+        '<div class="wm-progress"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>' +
+        (move === 'Wall Pushup' ? '<div class="wm-art"><svg width="210" height="114" viewBox="90 205 300 262" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><circle cx="215" cy="330" r="78" fill="#F9D78B" fill-opacity="0.28"></circle><rect x="300" y="205" width="22" height="262" rx="2" fill="#F4F2F5" fill-opacity="0.55"></rect><rect x="90" y="462" width="300" height="5" fill="#F4F2F5" fill-opacity="0.4"></rect><g stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M201 347L176 403" stroke-width="21"></path><path d="M176 403L150 457" stroke-width="14"></path><path d="M147 462H171" stroke-width="8"></path><path d="M238 269L202 346" stroke-width="30"></path><path d="M241 264L248 250" stroke-width="11"></path><path d="M239 270L279 296" stroke-width="11"></path><path d="M279 296L298 261" stroke-width="9"></path><path d="M241 232q-17 3 -19 24" stroke-width="7"></path></g><circle cx="197" cy="348" r="14" fill="#FFFFFF"></circle><circle cx="251" cy="242" r="15" fill="#FFFFFF"></circle><ellipse cx="299" cy="260" rx="4" ry="7" fill="#FFFFFF"></ellipse></svg></div>' : '') +
+        '<span class="ci-ph-title" style="font-size:24px">' + move + '</span>' +
+        '<span class="wm-badge">Alternate available</span>' +
+        '<span class="wm-q">How does your ' + word + ' feel?</span>' +
+        '<div class="wm-signal"><span class="good on"><i></i>Good</span><span class="pull"><i></i>Pull</span><span class="stop"><i></i>Stop</span></div>' +
+        '<p class="wm-note wm-note-dark">Pull or Stop swaps in the alternate. A check-in is not a diagnosis.</p>' +
+        '<span class="ci-start wm-gold">Next set</span>';
+    } else if (w.g === 4) {
+      if (w.w in PHASE) {
+        html = status('Return-to-running') + '<span class="ci-ph-title">Walk-run path</span>' +
+          PATH.map(function(p, k){ return '<div class="ci-opt' + (k === PHASE[w.w] ? ' ci-on' : '') + '"><span>' + p[0] + '</span><span>' + p[1] + '</span></div>'; }).join('') +
+          '<p class="wm-note">“' + word + '” fits ' + PATH[PHASE[w.w]][0] + '. Optional, never a requirement.</p><span class="ci-start">Start this phase</span>';
+      } else {
+        var alts = related(w, 4).slice(0, 3);
+        html = status('Exercise card') + '<span class="ci-ph-title">' + cap(word) + '</span>' +
+          '<div class="ci-today"><span class="k">Today’s move</span><span class="t">' + cap(word) + ' · 10 min</span><span class="d">Alternates are the closest moves on the map.</span></div>' +
+          '<span class="wm-sub">Alternates</span>' +
+          alts.map(function(a){ return '<div class="ci-opt"><span>' + esc(cap(a)) + '</span><span>Swap</span></div>'; }).join('') +
+          '<span class="ci-start">Start</span>';
+      }
+    } else {
+      var row = PROFILE[w.w] || 'Notes';
+      html = status('Treatment profile') + '<span class="ci-ph-title">Your treatment profile</span>' +
+        ['Surgery', 'Treatment', 'Care team', 'Notes'].map(function(r){
+          return '<div class="ci-opt' + (r === row ? ' ci-on' : '') + '"><span>' + r + '</span><span>' + (r === row ? esc(cap(w.w)) : 'Add') + '</span></div>';
+        }).join('') +
+        '<p class="wm-note">Also recognised: ' + related(w, 5).slice(0, 3).map(esc).join(', ') + '.</p>' +
+        '<span class="ci-start">Save profile</span>';
+    }
+    phone.className = 'ci-phone wm-phone ' + (dark ? 'ci-ph-dark' : 'ci-ph-light');
+    phone.innerHTML = html;
+    var lab = document.getElementById('wm-feature'); if (lab) lab.textContent = FEATURES[w.g];
+  }
   function select(i){
     sel = i; glow = 1;
-    var w = data.words[i], g = data.groups[w.g];
-    wordEl.textContent = w.w; groupEl.textContent = g.name; groupEl.style.setProperty('--gc', g.color);
+    var w = data.words[i];
+    wordEl.textContent = w.w;
     nnEl.innerHTML = w.n.map(function(j, k){
-      var n = data.words[j], pct = Math.round(w.s[k] * 100);
-      return '<li><button type="button" data-i="' + j + '"><i style="background:' + data.groups[n.g].color + '"></i><span>' + esc(n.w) + '</span><span class="wm-bar"><span style="width:' + pct + '%"></span></span><b>' + w.s[k].toFixed(2) + '</b></button></li>';
+      var n = data.words[j];
+      return '<button type="button" data-i="' + j + '"><i style="background:' + data.groups[n.g].color + '"></i>' + esc(n.w) + '<b>' + w.s[k].toFixed(2) + '</b></button>';
     }).join('');
+    renderApp(i);
   }
   function stopTour(){ if (!touring) return; touring = false; clearTimeout(tourTimer); pill.hidden = true; }
   function tour(k){
@@ -751,7 +845,7 @@ var EnergyCheckin = (function(){
   fetch('assets/word-map.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
     data = d;
     list.innerHTML = d.words.map(function(w){ return '<option value="' + esc(w.w) + '">'; }).join('');
-    legendEl.innerHTML = d.groups.map(function(g){ return '<span><i style="background:' + g.color + '"></i>' + esc(g.name) + '</span>'; }).join('');
+    legendEl.innerHTML = d.groups.map(function(g, k){ return '<span><i style="background:' + g.color + '"></i>' + esc(g.name) + ' <em>\u2192 ' + FEATURES[k] + '</em></span>'; }).join('');
     resize(); select(d.words.findIndex(function(w){ return w.w === 'tired'; }));
     if ('ResizeObserver' in window) new ResizeObserver(resize).observe(wrap); else window.addEventListener('resize', resize);
     if ('IntersectionObserver' in window) new IntersectionObserver(function(es){
