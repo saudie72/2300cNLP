@@ -38,12 +38,62 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 .sa-dark section a:not([style]){color:#F7B58A}
 .mode-btn{white-space:nowrap;min-height:48px;padding:0 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.5);background:transparent;color:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;cursor:pointer}
 .mode-btn:hover{background:rgba(255,255,255,0.12)}
-.ci-chip{min-height:40px;padding:0 14px;border-radius:9999px;border:1px solid #D3D0D9;background:#F7F4F8;color:#1B2236;font-family:Inter,sans-serif;font-size:14px;cursor:pointer}
+.ci-stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:stretch}
+.ci-panel{min-width:0;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box}
+.ci-input{background:#F7F4F8;border:1px solid #E4E1E8}
+.ci-output{background:#1E2A4A;color:#FFFFFF}
+#ci-text{font:inherit;font-size:18px;line-height:1.5;padding:14px 16px;border-radius:12px;border:1px solid #D3D0D9;background:#FFFFFF;color:#1B2236;resize:vertical;box-sizing:border-box;width:100%}
+.ci-chip{min-height:40px;padding:6px 14px;border-radius:9999px;border:1px solid #D3D0D9;background:#FFFFFF;color:#1B2236;font-family:Inter,sans-serif;font-size:14px;text-align:left;cursor:pointer}
 .ci-chip:hover{border-color:#8C3B6E}
-.sa-dark .ci-chip{background:#141C33;color:#F4F2F5;border-color:#2C3552}
-.sa-dark #ci-text{background:#1E2A4A !important;color:#F4F2F5 !important;border-color:#2C3552 !important}
-.sa-dark #ci-result strong{color:#F4F2F5 !important}
 #ci-text:focus-visible,.ci-chip:focus-visible{outline:3px solid #D45D79;outline-offset:2px}
+.ci-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:9999px;background:#FBF3F7;color:#8C3B6E;font-size:13px;font-weight:600}
+.ci-dot{width:8px;height:8px;border-radius:9999px;background:#D45D79;animation:ciPulse 1.2s ease-in-out infinite}
+.ci-pill[hidden]{display:none}
+@keyframes ciPulse{50%{opacity:.25}}
+.ci-step{display:flex;flex-direction:column;gap:12px}
+.ci-step-label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ci-input .ci-step-label{color:#8C3B6E}
+.ci-output .ci-step-label{color:#F7B58A}
+.ci-num{width:26px;height:26px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;letter-spacing:0;background:currentColor}
+.ci-num{color:inherit}
+.ci-input .ci-num{background:#8C3B6E;color:#FFFFFF}
+.ci-output .ci-num{background:#F7B58A;color:#1E2A4A}
+.ci-tokens{display:flex;flex-wrap:wrap;gap:8px;min-height:44px;align-content:flex-start}
+.ci-tok{--c:95,102,117;--o:1;padding:6px 12px;border-radius:9999px;font-size:16px;font-weight:600;background:rgba(var(--c),calc(var(--o)*0.9));color:#FFFFFF;transition:background .25s;animation:ciPop .25s ease-out}
+.ci-tok.ci-none{background:#E4E1E8;color:#5F6675;font-weight:500}
+.ci-tok.ci-low{--c:196,128,20}
+.ci-tok.ci-steady{--c:196,72,104}
+.ci-tok.ci-strong{--c:35,125,93}
+@keyframes ciPop{from{transform:scale(.85);opacity:.4}to{transform:none;opacity:1}}
+.ci-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:#5F6675}
+.ci-legend span{display:inline-flex;align-items:center;gap:6px}
+.ci-sw{width:12px;height:12px;border-radius:4px;display:inline-block}
+.ci-sw.ci-low,.ci-fill.ci-low{background:#E0A43A}
+.ci-sw.ci-steady,.ci-fill.ci-steady{background:#D45D79}
+.ci-sw.ci-strong,.ci-fill.ci-strong{background:#4FC79A}
+.ci-sw.ci-none{background:#D3D0D9}
+.ci-bar-row{display:grid;grid-template-columns:64px 1fr 48px;align-items:center;gap:12px;font-size:15px;font-weight:600}
+.ci-bar-row b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.ci-track{height:16px;border-radius:9999px;background:#2C3552;overflow:hidden}
+.ci-fill{display:block;height:100%;width:0;border-radius:9999px;transition:width .35s ease}
+.ci-result{border-radius:14px;padding:20px;background:#141C33;border-left:6px solid #2C3552;display:flex;flex-direction:column;gap:8px;min-height:150px;box-sizing:border-box;transition:border-color .3s}
+.ci-result.ci-low{border-left-color:#E0A43A}.ci-result.ci-steady{border-left-color:#D45D79}.ci-result.ci-strong{border-left-color:#4FC79A}.ci-result.ci-alert{border-left-color:#E5484D}
+.ci-kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F7B58A}
+.ci-alert .ci-kicker{color:#FF8A8F}
+.ci-big{margin:0;font-family:'DM Serif Display',serif;font-size:30px;line-height:1.15;color:#FFFFFF}
+.ci-sub{margin:0;font-size:15px;line-height:1.6;color:#D9DCE3}
+.ci-output .ci-muted{color:#A9AEBB}
+.ci-input .ci-muted{color:#5F6675}
+.sa-dark .ci-input{background:#141C33;border-color:#2C3552}
+.sa-dark .ci-output{background:#1E2A4A;border:1px solid #2C3552}
+.sa-dark #ci-text{background:#0D0F14;color:#F4F2F5;border-color:#2C3552}
+.sa-dark .ci-chip{background:#0D0F14;color:#F4F2F5;border-color:#2C3552}
+.sa-dark .ci-pill{background:rgba(212,93,121,0.18);color:#F7B58A}
+.sa-dark .ci-tok.ci-none{background:#2C3552;color:#A9AEBB}
+.sa-dark .ci-input .ci-step-label{color:#F7B58A}
+.sa-dark .ci-input .ci-num{background:#F7B58A;color:#1E2A4A}
+.sa-dark .ci-legend,.sa-dark .ci-input .ci-muted{color:#A9AEBB}
+@media (prefers-reduced-motion: reduce){.ci-tok,.ci-dot{animation:none}.ci-fill,.ci-result{transition:none}}
 .fs-still{display:none}
 @media (prefers-reduced-motion: reduce){.fs-motion{display:none}.fs-still{display:inline}}
 .fs-b{opacity:0}
@@ -178,35 +228,47 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 </section>
 
 <section id="checkin" aria-labelledby="checkin-title" style="background: #FFFFFF; padding: 112px 24px">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
-<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="max-width: 760px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C3B6E">Try a check-in</span>
-<h2 id="checkin-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Tell us how today feels, in your own words</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #5F6675">Type a sentence or two. A small language model reads it and suggests a Low, Steady, or Strong session. You can always choose a different one.</p>
-<form id="ci-form" style="display: flex; flex-direction: column; gap: 12px">
+<h2 id="checkin-title" style="margin: 0; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(32px, 4vw, 46px); line-height: 1.15">Tell us how today feels. Watch it read along.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #5F6675">Every word you type nudges the suggestion toward a gentler or a stronger session. Watch the words light up and the bars move as you type.</p>
+</div>
+<div class="ci-stage">
+<div class="ci-panel ci-input">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
 <label for="ci-text" style="font-size: 15px; font-weight: 600">How are you feeling today?</label>
-<textarea id="ci-text" rows="4" maxlength="500" placeholder="e.g. Didn't sleep well and my arm is a little stiff, but I'd like to move a bit." style="font: inherit; font-size: 16px; line-height: 1.5; padding: 14px 16px; border-radius: 12px; border: 1px solid #D3D0D9; background: #FFFFFF; color: #1B2236; resize: vertical"></textarea>
+<span id="ci-demo-pill" class="ci-pill"><span class="ci-dot"></span>Playing a demo. Click the box to type your own</span>
+</div>
+<textarea id="ci-text" rows="4" maxlength="500" spellcheck="false">Wiped out after infusion yesterday, my legs feel heavy</textarea>
 <div id="ci-examples" style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Example check-ins">
-<button type="button" class="ci-chip">Wiped out after infusion yesterday</button>
-<button type="button" class="ci-chip">Doing okay, a little stiff</button>
-<button type="button" class="ci-chip">Slept great and I feel strong!</button>
+<button type="button" class="ci-chip">Wiped out after infusion yesterday, my legs feel heavy</button>
+<button type="button" class="ci-chip">Doing okay, a little stiff but fine</button>
+<button type="button" class="ci-chip">Slept great and I feel strong, let's go!</button>
+<button type="button" class="ci-chip">Not tired at all today</button>
 </div>
-<button type="submit" style="align-self: flex-start; min-height: 52px; padding: 0 28px; border: 0; border-radius: 9999px; background: #8C3B6E; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Suggest a session</button>
-</form>
-<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs entirely in your browser; what you type is not sent or saved. This is a suggestion tool, not a medical assessment.</p>
+<div class="ci-step">
+<span class="ci-step-label"><span class="ci-num">1</span>It reads your words</span>
+<div id="ci-tokens" class="ci-tokens" aria-live="off"></div>
+<div class="ci-legend"><span><i class="ci-sw ci-low"></i>Pushes toward Low</span><span><i class="ci-sw ci-steady"></i>Steady</span><span><i class="ci-sw ci-strong"></i>Strong</span><span><i class="ci-sw ci-none"></i>Doesn't matter</span></div>
 </div>
-<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div id="ci-result" aria-live="polite" style="background: #F4F2F5; border-radius: 20px; padding: 32px; min-height: 260px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 16px">
-<p style="margin: 0; font-family: 'DM Serif Display', serif; font-size: 24px; line-height: 1.3">Your suggestion will appear here.</p>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5F6675">Try one of the examples, or write your own.</p>
 </div>
-<details style="border: 1px solid #E4E1E8; border-radius: 12px; padding: 18px 20px"><summary style="font-size: 16px; font-weight: 600; cursor: pointer">How this works (for the NLP-curious)</summary>
-<div style="margin-top: 12px; font-size: 15px; line-height: 1.6; color: #5F6675; display: flex; flex-direction: column; gap: 10px">
-<p style="margin: 0">Your text is split into words and word pairs, weighted with <strong>TF-IDF</strong>, and scored by a <strong>logistic regression</strong> classifier trained in Python (scikit-learn) on 660 synthetic check-in messages. A Naive Bayes model was trained as a baseline.</p>
-<p style="margin: 0">On 60 separately written test messages it is about 90% accurate. Because suggesting too much is worse than too little, the page picks the gentler option when the model is unsure. Messages that mention possible warning signs (such as chest pain, fever, or new arm swelling) get a stop-and-check message instead of a session.</p>
-<p style="margin: 0"><a href="https://github.com/saudie72/2300cNLP/tree/main/nlp">Training code and results on GitHub</a></p>
-</div></details>
+<div class="ci-panel ci-output">
+<div class="ci-step">
+<span class="ci-step-label"><span class="ci-num">2</span>It adds up the evidence</span>
+<div id="ci-bars" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ci-bar-row"><span>Low</span><span class="ci-track"><span class="ci-fill ci-low" data-i="0"></span></span><b data-p="0">-</b></div>
+<div class="ci-bar-row"><span>Steady</span><span class="ci-track"><span class="ci-fill ci-steady" data-i="1"></span></span><b data-p="1">-</b></div>
+<div class="ci-bar-row"><span>Strong</span><span class="ci-track"><span class="ci-fill ci-strong" data-i="2"></span></span><b data-p="2">-</b></div>
 </div>
+</div>
+<div class="ci-step">
+<span class="ci-step-label"><span class="ci-num">3</span>It suggests a session</span>
+<div id="ci-result" aria-live="polite" class="ci-result"></div>
+</div>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5F6675">Runs entirely in your browser; what you type is not sent or saved. This is a suggestion, not a medical assessment. Under the hood: TF-IDF features and a logistic regression classifier, about 90% accurate on test messages. <a href="https://github.com/saudie72/2300cNLP/tree/main/nlp">See the code and results</a>.</p>
 </div>
 </section>
 
@@ -369,10 +431,11 @@ a{color:#8C3B6E}a:hover{color:#76315D}
 /* Energy check-in classifier: TF-IDF + logistic regression, weights trained in nlp/train.py. */
 var EnergyCheckin = (function(){
   var SESSIONS = {
-    low:    {name: 'Low',    minutes: 7,  color: '#C98A1A', blurb: 'A gentle 7-minute session. Seated and supported moves, and stopping early still counts.'},
-    steady: {name: 'Steady', minutes: 15, color: '#8C3B6E', blurb: 'A steady 15-minute session with alternates shown where available.'},
-    strong: {name: 'Strong', minutes: 30, color: '#2E8B6A', blurb: 'A fuller 30-minute session. Pause or swap any move whenever you need to.'}
+    low:    {name: 'Low',    minutes: 7,  blurb: 'A gentle 7-minute session. Seated and supported moves, and stopping early still counts.'},
+    steady: {name: 'Steady', minutes: 15, blurb: 'A steady 15-minute session with alternates shown where available.'},
+    strong: {name: 'Strong', minutes: 30, blurb: 'A fuller 30-minute session. Pause or swap any move whenever you need to.'}
   };
+  var CLS = ['ci-low', 'ci-steady', 'ci-strong'];
   // Possible warning signs: show a stop-and-check message instead of a session.
   var RED_FLAGS = [
     /chest (pain|tight)/, /short(ness)? of breath/, /(can ?not|cant|hard to) breathe/, /\bfever/, /\bdizz/, /\bfaint/,
@@ -383,86 +446,113 @@ var EnergyCheckin = (function(){
     return text.toLowerCase().replace(/’/g, "'").replace(/'/g, '').split(/[^a-z0-9]+/).filter(function(t){ return t.length >= 2; });
   }
 
-  function features(model, text){
-    var toks = tokenize(text), counts = {};
-    var terms = toks.slice();
-    for (var i = 0; i + 1 < toks.length; i++) terms.push(toks[i] + ' ' + toks[i + 1]);
-    terms.forEach(function(t){ if (t in model.vocab) counts[t] = (counts[t] || 0) + 1; });
+  function analyze(model, text){
+    var toks = tokenize(text), counts = {}, terms = [];
+    toks.forEach(function(t, i){ terms.push({t: t, w: [i]}); if (i + 1 < toks.length) terms.push({t: t + ' ' + toks[i + 1], w: [i, i + 1]}); });
+    terms.forEach(function(x){ if (x.t in model.vocab) counts[x.t] = (counts[x.t] || 0) + 1; });
     var vec = {}, norm = 0;
     Object.keys(counts).forEach(function(t){
-      var j = model.vocab[t], w = (1 + Math.log(counts[t])) * model.idf[j]; // sublinear tf * idf
+      var w = (1 + Math.log(counts[t])) * model.idf[model.vocab[t]]; // sublinear tf * idf
       vec[t] = w; norm += w * w;
     });
     norm = Math.sqrt(norm);
     if (norm > 0) Object.keys(vec).forEach(function(t){ vec[t] /= norm; });
-    return vec;
+    // How much each word pushes each class (bigram credit is split between its two words).
+    var push = toks.map(function(){ return [0, 0, 0]; }), known = toks.map(function(){ return false; }), seen = {};
+    terms.forEach(function(x){
+      if (!(x.t in vec) || seen[x.t + '|' + x.w[0]]) return;
+      seen[x.t + '|' + x.w[0]] = 1;
+      var j = model.vocab[x.t], c = [0, 1, 2].map(function(k){ return model.coef[k][j] * vec[x.t] / counts[x.t]; });
+      var mean = (c[0] + c[1] + c[2]) / 3;
+      x.w.forEach(function(i){ known[i] = true; for (var k = 0; k < 3; k++) push[i][k] += (c[k] - mean) / x.w.length; });
+    });
+    return {toks: toks, vec: vec, push: push, known: known};
   }
 
   function predict(model, text){
-    var vec = features(model, text);
+    var a = analyze(model, text), vec = a.vec;
     var scores = model.intercept.slice();
     Object.keys(vec).forEach(function(t){
       var j = model.vocab[t];
       for (var c = 0; c < scores.length; c++) scores[c] += model.coef[c][j] * vec[t];
     });
     var max = Math.max.apply(null, scores), exps = scores.map(function(s){ return Math.exp(s - max); });
-    var sum = exps.reduce(function(a, b){ return a + b; }, 0);
+    var sum = exps.reduce(function(x, y){ return x + y; }, 0);
     var proba = exps.map(function(e){ return e / sum; });
-    var order = [0, 1, 2].sort(function(a, b){ return proba[b] - proba[a]; });
+    var order = [0, 1, 2].sort(function(x, y){ return proba[y] - proba[x]; });
     // Cautious rule: when unsure, recommend the gentler of the top two (labels are ordered low < steady < strong).
     var unsure = proba[order[0]] < model.unsure_threshold;
     var pick = unsure ? Math.min(order[0], order[1]) : order[0];
-    var top = model.labels.map(function(label, c){
-      var words = Object.keys(vec).map(function(t){ return {t: t, w: model.coef[c][model.vocab[t]] * vec[t]}; })
-        .filter(function(x){ return x.w > 0.05; }).sort(function(a, b){ return b.w - a.w; }).slice(0, 4).map(function(x){ return x.t; });
-      return words;
-    });
-    return {label: model.labels[pick], proba: proba, unsure: unsure, known: Object.keys(vec).length, words: top[pick]};
+    return {label: model.labels[pick], proba: proba, unsure: unsure, known: Object.keys(vec).length, analysis: a};
   }
 
   function redFlag(text){ var s = text.toLowerCase(); return RED_FLAGS.some(function(r){ return r.test(s); }); }
-
   function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
-  function render(el, model, text){
-    if (!text.trim()) { el.innerHTML = '<p style="margin: 0; font-size: 16px; color: #5F6675">Type a few words about how you feel, then press Suggest a session.</p>'; return; }
-    if (redFlag(text)) {
-      el.innerHTML = '<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #C2414B">Pause first</span>' +
-        '<p style="margin: 0; font-family: \'DM Serif Display\', serif; font-size: 28px; line-height: 1.25">Let’s skip the workout and check in with your care team.</p>' +
-        '<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5F6675">You mentioned something that can be a warning sign. Please contact your care team before exercising. If it feels urgent, call your local emergency number.</p>';
-      return;
-    }
-    var r = predict(model, text), s = SESSIONS[r.label];
-    var bars = model.labels.map(function(l, i){
-      var pct = Math.round(r.proba[i] * 100);
-      return '<div style="display: grid; grid-template-columns: 64px 1fr 40px; align-items: center; gap: 10px; font-size: 14px">' +
-        '<span style="font-weight: 600">' + SESSIONS[l].name + '</span>' +
-        '<span style="height: 10px; border-radius: 9999px; background: #E4E1E8; overflow: hidden"><span style="display: block; height: 100%; width: ' + pct + '%; background: ' + SESSIONS[l].color + '"></span></span>' +
-        '<span style="color: #5F6675; text-align: right">' + pct + '%</span></div>';
-    }).join('');
-    var note = r.known === 0
-      ? 'I didn’t recognise many of those words, so this is a gentle default. Try describing your energy, sleep, or how your body feels.'
-      : r.unsure ? 'The model wasn’t sure, so it chose the gentler option.' : '';
-    var words = r.words.length ? '<p style="margin: 0; font-size: 14px; color: #5F6675">Words that shaped this: ' + r.words.map(function(w){ return '<strong style="color: #1B2236">' + esc(w) + '</strong>'; }).join(', ') + '</p>' : '';
-    el.innerHTML =
-      '<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C3B6E">Suggested for today</span>' +
-      '<p style="margin: 0; font-family: \'DM Serif Display\', serif; font-size: 34px; line-height: 1.15">' + s.name + ' session · ' + s.minutes + ' min</p>' +
-      '<p style="margin: 0; font-size: 16px; line-height: 1.6">' + s.blurb + '</p>' +
-      (note ? '<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #5F6675">' + note + '</p>' : '') +
-      '<div style="display: flex; flex-direction: column; gap: 8px">' + bars + '</div>' + words +
-      '<p style="margin: 0; font-size: 14px; color: #5F6675">Not quite right? You can always pick a different session, or rest.</p>';
-  }
-
   function init(){
-    var form = document.getElementById('ci-form'); if (!form) return;
-    var input = document.getElementById('ci-text'), out = document.getElementById('ci-result');
-    var modelPromise = fetch('assets/energy-model.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); });
-    function run(){
-      modelPromise.then(function(m){ render(out, m, input.value); })
-        .catch(function(){ out.innerHTML = '<p style="margin: 0; font-size: 16px; color: #5F6675">Sorry, the check-in model couldn’t load. Please refresh and try again.</p>'; });
+    var input = document.getElementById('ci-text'); if (!input) return;
+    var out = document.getElementById('ci-result'), tokEl = document.getElementById('ci-tokens');
+    var fills = document.querySelectorAll('#ci-bars .ci-fill'), pcts = document.querySelectorAll('#ci-bars b');
+    var pill = document.getElementById('ci-demo-pill'), model = null, auto = true;
+
+    function update(){
+      if (!model) return;
+      var text = input.value;
+      if (!text.trim()) {
+        tokEl.innerHTML = '<span class="ci-muted">Start typing and each word will appear here.</span>';
+        fills.forEach(function(f){ f.style.width = '0%'; }); pcts.forEach(function(p){ p.textContent = '-'; });
+        out.innerHTML = '<p class="ci-muted" style="margin:0">Your suggestion will appear here.</p>';
+        return;
+      }
+      var r = predict(model, text), a = r.analysis;
+      tokEl.innerHTML = a.toks.map(function(t, i){
+        var p = a.push[i], k = p.indexOf(Math.max.apply(null, p)), s = p[k];
+        if (!a.known[i]) return '<span class="ci-tok ci-none" title="Not a word the model learned">' + esc(t) + '</span>';
+        if (s < 0.03) return '<span class="ci-tok ci-none" title="Barely changes the result">' + esc(t) + '</span>';
+        var o = Math.min(1, 0.25 + s * 1.4).toFixed(2);
+        return '<span class="ci-tok ' + CLS[k] + '" style="--o:' + o + '" title="Pushes toward ' + model.labels[k] + '">' + esc(t) + '</span>';
+      }).join('');
+      r.proba.forEach(function(v, i){ fills[i].style.width = (v * 100).toFixed(1) + '%'; pcts[i].textContent = Math.round(v * 100) + '%'; });
+      if (redFlag(text)) {
+        out.className = 'ci-result ci-alert';
+        out.innerHTML = '<span class="ci-kicker">Pause first</span><p class="ci-big">Skip the workout and check in with your care team.</p>' +
+          '<p class="ci-sub">You mentioned something that can be a warning sign. If it feels urgent, call your local emergency number.</p>';
+        return;
+      }
+      var s = SESSIONS[r.label];
+      var note = r.known === 0 ? 'It didn’t recognise those words yet, so it picked the gentle option.'
+        : r.unsure ? 'It was close, so it picked the gentler option.' : '';
+      out.className = 'ci-result ' + CLS[model.labels.indexOf(r.label)];
+      out.innerHTML = '<span class="ci-kicker">Suggested for today</span><p class="ci-big">' + s.name + ' session · ' + s.minutes + ' min</p>' +
+        '<p class="ci-sub">' + s.blurb + '</p>' + (note ? '<p class="ci-sub ci-muted">' + note + '</p>' : '');
     }
-    form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
-    document.querySelectorAll('.ci-chip').forEach(function(b){ b.addEventListener('click', function(){ input.value = b.textContent; run(); }); });
+
+    // Demo: type the examples one character at a time until the visitor takes over.
+    var examples = Array.prototype.map.call(document.querySelectorAll('.ci-chip'), function(b){ return b.textContent; });
+    var timer = null;
+    function stopDemo(){ if (!auto) return; auto = false; clearTimeout(timer); pill.hidden = true; }
+    function play(ex, i){
+      if (!auto) return;
+      if (i <= examples[ex].length) { input.value = examples[ex].slice(0, i); update(); timer = setTimeout(function(){ play(ex, i + 1); }, 55); }
+      else timer = setTimeout(function(){ play((ex + 1) % examples.length, 0); }, 2600);
+    }
+    function startDemo(){
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { stopDemo(); return; }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { io.disconnect(); timer = setTimeout(function(){ play(0, 0); }, 700); } }, {threshold: 0.35});
+        io.observe(input);
+      } else play(0, 0);
+    }
+
+    var debounce = null;
+    input.addEventListener('input', function(){ stopDemo(); clearTimeout(debounce); debounce = setTimeout(update, 60); });
+    ['pointerdown', 'focus', 'keydown'].forEach(function(ev){ input.addEventListener(ev, stopDemo); });
+    document.querySelectorAll('.ci-chip').forEach(function(b){ b.addEventListener('click', function(){ stopDemo(); input.value = b.textContent; update(); }); });
+
+    fetch('assets/energy-model.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(m){ model = m; update(); startDemo(); })
+      .catch(function(){ pill.hidden = true; out.innerHTML = '<p class="ci-sub">The check-in model didn’t load. Refresh the page to try again.</p>'; });
   }
   init();
   return {tokenize: tokenize, predict: predict, redFlag: redFlag};

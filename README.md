@@ -19,7 +19,9 @@ currently scroll to the closing call-to-action (`#get-started`) until the app UR
 **Course topic:** text classification with TF-IDF + logistic regression (Ch02–Ch04),
 with multinomial Naive Bayes as a baseline.
 
-In the "Try a check-in" section, a visitor types how they feel. The page classifies the
+In the "Try a check-in" section the model works live: it types demo messages on its own, colors
+each word by the energy level it pushes toward, moves the three probability bars as each word
+is added, and updates the suggestion. A visitor can click the box and type their own. The page classifies the
 message as **Low / Steady / Strong** energy and suggests the matching 7 / 15 / 30-minute
 session. Classification runs in the browser, so nothing typed is sent anywhere.
 
