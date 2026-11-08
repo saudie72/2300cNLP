@@ -1,0 +1,7 @@
+tensorflow>=2.18
+keras>=3.13
+scikit-learn==1.6.1
+pandas
+numpy
+joblib
+gradio
